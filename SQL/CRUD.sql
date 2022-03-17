@@ -8,5 +8,5 @@ WHERE idpasajero = '1003125521';
 DELETE FROM pasajero
 WHERE idpasajero = '1003125521';
 
-INSERT INTO aerolinea (codlinea, nombrelinea)
+INSERT INTO lineaaerea (codlinea, nombrelinea)
 VALUES ('001','Avianca');
