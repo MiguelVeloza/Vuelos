@@ -5,10 +5,15 @@
  */
 package logica;
 
+import java.sql.Date;
+
 /**
- *
+ * @author jose alejandro Cortazar 20181020022
  * @author migue
  */
 public class Dia {
+    private String iddia;
+    private String anomdia;
     
+    public
 }
