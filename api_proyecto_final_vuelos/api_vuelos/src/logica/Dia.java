@@ -15,5 +15,19 @@ public class Dia {
     private String iddia;
     private String anomdia;
     
-    public
+    public String getIddia() {
+        return iddia;
+    }
+
+    public String getAnomdia() {
+        return anomdia;
+    }
+
+    public void setIddia(String iddia) {
+        this.iddia = iddia;
+    }
+
+    public void setAnomdia(String anomdia) {
+        this.anomdia = anomdia;
+    }
 }

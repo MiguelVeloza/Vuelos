@@ -40,7 +40,7 @@ public class PasajeroImp extends Conexion implements DAOPasajero{
             this.cerrar();
         }
     }
-
+        //1
     @Override
     public void modificar(Pasajero p) throws Exception {
         try{
@@ -65,7 +65,7 @@ public class PasajeroImp extends Conexion implements DAOPasajero{
             System.out.println("cerrado");
         }
     }
-
+    //2
     @Override
     public void eliminar(Pasajero p) throws Exception {
         try{
