@@ -46,7 +46,7 @@ VALUES ('00013', '007','00002','Florida'),
 		('00021', '004','00015','Dallas'),
 		('00022', '004','00016','Maracaibo'),
 		('00023', '004','00017','Puerto Ayacucho'),
-		('00024', '007','00018','Sao Pablo');
+		('00024', '007','00018','Sao Pablo'),
 --Aeropuerto
 		('00025', '004','00019','Aeropuerto Internacional de Miami - MIA')
 		('00026', '004','00020','Aeropuerto Internacional John F. Kennedy'),
