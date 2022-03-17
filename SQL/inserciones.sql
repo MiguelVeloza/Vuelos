@@ -6,6 +6,7 @@ VALUES ('001','Pais'),
 		('005', 'Municipio'),
 		('006', 'Provincia'),
 		('007', 'Estado');
+		('008', 'Aeropuerto')
 		
 INSERT into lugar (idlugar, idtipolugar, nomlugar)
 VALUES ('00001', '001','Colombia');
@@ -45,4 +46,22 @@ VALUES ('00013', '007','00002','Florida'),
 		('00021', '004','00015','Dallas'),
 		('00022', '004','00016','Maracaibo'),
 		('00023', '004','00017','Puerto Ayacucho'),
-		('00023', '007','00018','Sao Pablo');
+		('00024', '007','00018','Sao Pablo');
+--Aeropuerto
+		('00025', '004','00019','Aeropuerto Internacional de Miami - MIA')
+		('00026', '004','00020','Aeropuerto Internacional John F. Kennedy'),
+		('00027', '004','00021','Aeropuerto Internacional de Dallas-Fort Worth'),
+		('00028', '004','00022','Aeropuerto Internacional de La Chinita'),
+		('00029', '004','00023','Aeropuerto Cacique Aramare'),
+		('00030', '007','00024','Aeropuerto Internacional de São Paulo-Guarulhos');
+
+--Dias de la semana
+INSERT into Dia (idDia, AnomDIa)
+VALUES ('1', 'Lunes'),
+		('2', 'Martes'),
+		('3', 'Miercoles'),
+		('4', 'Jueves'),
+		('5', 'Viernes'),
+		('6', 'Sabado'),
+		('7', 'Domingo');
+
