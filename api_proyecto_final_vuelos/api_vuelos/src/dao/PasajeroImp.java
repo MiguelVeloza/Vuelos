@@ -13,7 +13,7 @@ import java.util.List;
 import logica.Pasajero;
 
 /**
- *
+ * @author alejandro cortazar 20181020022
  * @author migue
  */
 public class PasajeroImp extends Conexion implements DAOPasajero{

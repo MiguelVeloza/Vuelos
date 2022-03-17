@@ -46,17 +46,25 @@ VALUES 	('00016', '007','00013','Florida'),
 		('00024', '004','00018','Dallas'),
 		('00025', '004','00019','Maracaibo'),
 		('00026', '004','00020','Puerto Ayacucho'),
-		('00027', '007','00021','Sao Pablo'),
---Aeropuerto
-		('00028', '004','00022','Aeropuerto Internacional de Miami - MIA'),
-		('00029', '004','00023','Aeropuerto Internacional John F. Kennedy'),
-		('00030', '004','00024','Aeropuerto Internacional de Dallas-Fort Worth'),
-		('00031', '004','00025','Aeropuerto Internacional de La Chinita'),
-		('00032', '004','00026','Aeropuerto Cacique Aramare'),
-		('00033', '007','00027','Aeropuerto Internacional de São Paulo-Guarulhos');
+		('00027', '004','00021','Sao Pablo'),
+--Aeropuertos Internacionales
+		('00028', '008','00022','Aer.Int. Miami - MIA'),
+		('00029', '008','00023','Aer.Int. John F. Kennedy'),
+		('00030', '008','00024','Aer.Int. de Dallas-Fort Worth'),
+		('00031', '008','00025','Aer.Int. de La Chinita'),
+		('00032', '008','00026','Aeropuerto Cacique Aramare'),
+		('00033', '008','00027','Aer.Int. de São Paulo-Guarulhos'),
+--Aeropuertos Nacionales
 
+		('00034', '008','00007','Aer.Int. El Dorado'),
+		('00035', '008','00008','Aer.Int. José María Córdova -MED'),
+		('00036', '008','00009','Aer.Int.Alfonso Bonilla Aragón - CAL'),
+		('00038', '008','00010','Aer.Int. Ernesto Cortissoz - Bar'),
+		('00039', '008','00011','Aer.Int.  Rafael Núñez - Car'),
+		('00037', '008','00012','Aer. Guillermo León Valencia - Pop');
+		
 --Dias de la semana
-INSERT into Dia (idDia, AnomDIa)
+INSERT into Dia (idDia, AnomDia)
 VALUES ('1', 'Lunes'),
 		('2', 'Martes'),
 		('3', 'Miercoles'),
