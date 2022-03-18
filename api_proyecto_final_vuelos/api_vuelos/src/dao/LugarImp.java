@@ -19,8 +19,25 @@ import logica.Lugar;
 public class LugarImp extends Conexion implements DAOLugar{
 
     @Override
-    public void registrar(Lugar t) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void registrar(Lugar l) throws Exception {
+        String sql = "INSERT into lugar (idlugar, idtipolugar, lug_idlugar, nomlugar)\n" +
+                      "VALUES 	(?, ?, ?, ?),";
+        
+        try{
+            this.conectar();
+                      
+            PreparedStatement st = this.conexion.prepareStatement(sql);
+            st.setString(1, l.getId());
+            st.setString(2, l.getIdTipoLugar());
+            st.setString(3, l.getIdLugarSuperior());
+            st.setString(4, l.getNombre());
+            
+            st.executeUpdate();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        } finally {
+            this.cerrar();
+        }
     }
 
     @Override
@@ -39,6 +56,37 @@ public class LugarImp extends Conexion implements DAOLugar{
         try{
             this.conectar();
             String sql = "SELECT * FROM lugar";
+            
+            PreparedStatement st = this.conexion.prepareStatement(sql);
+            lista = new ArrayList();
+            ResultSet rs = st.executeQuery();
+            
+            while(rs.next()) {
+                Lugar l = new Lugar();
+                l.setId(rs.getString("idlugar"));
+                l.setIdTipoLugar(rs.getString("idtipolugar"));
+                l.setIdLugarSuperior(rs.getString("lug_idlugar"));
+                l.setNombre(rs.getString("nomlugar"));
+                
+                lista.add(l);
+            }
+            rs.close();
+            st.close();                              
+        }catch (Exception e){
+            throw e;
+        } finally {
+            this.cerrar();
+        }
+        return lista;
+    }
+
+    @Override
+    public List<Lugar> listarAeropuertos() throws Exception {
+        List<Lugar> lista = null; 
+        try{
+            this.conectar();
+            String sql = "select * from lugar\n" +
+                          "WHERE idtipolugar='008';";
             
             PreparedStatement st = this.conexion.prepareStatement(sql);
             lista = new ArrayList();

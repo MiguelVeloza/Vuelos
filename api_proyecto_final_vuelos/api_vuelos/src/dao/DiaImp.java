@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 import interfacesDao.DAODia;
@@ -12,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import logica.Dia;
-import logica.Pasajero;
+
 
 /**
  *  @author alejandro cortazar 20181020022
- *  @author migue
+ *  @author miguel veloza 20192020012
  */
 public class DiaImp extends Conexion implements DAODia{
     //1

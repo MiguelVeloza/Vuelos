@@ -5,8 +5,8 @@ VALUES ('001','Pais'),
 		('004','Ciudad'),
 		('005', 'Municipio'),
 		('006', 'Provincia'),
-		('007', 'Estado'),
-		('008', 'Aeropuerto');
+		('007', 'Estado');
+		('008', 'Aeropuerto')
 		
 INSERT into lugar (idlugar, idtipolugar, nomlugar)
 VALUES ('00001', '001','Colombia');
@@ -48,21 +48,22 @@ VALUES 	('00016', '007','00013','Florida'),
 		('00026', '004','00020','Puerto Ayacucho'),
 		('00027', '004','00021','Sao Pablo'),
 --Aeropuertos Internacionales
-		('00028', '008','00022','Aer.Int. Miami - MIA'),
-		('00029', '008','00023','Aer.Int. John F. Kennedy'),
-		('00030', '008','00024','Aer.Int. Dallas-Fort Worth'),
-		('00031', '008','00025','Aer.Int. de La Chinita'),
+		('00028', '008','00022','Aer.Int.Miami - MIA'),
+		('00029', '008','00023','Aer.Int.John F. Kennedy'),
+		('00030', '008','00024','Aer.Int.de Dallas-Fort Worth'),
+		('00031', '008','00025','Aer.Int.de La Chinita'),
 		('00032', '008','00026','Aeropuerto Cacique Aramare'),
-		('00033', '008','00027','Aer.Int.São Paulo-Guarulhos'),
+		('00033', '008','00027','Aer.Int.de São Paulo-Guarulhos'),
 --Aeropuertos Nacionales
 
-		('00034', '008','00007','Aer.Int. El Dorado'),
-		('00035', '008','00008','Aer.Int. José María Córdova'),
-		('00036', '008','00009','A.I.Alfonso Bonilla Aragón '),
-		('00038', '008','00010','Aer.Int. Ernesto Cortissoz '),
-		('00039', '008','00011','Aer.Int.  Rafael Núñez '),
-		('00037', '008','00012','Aer Guillermo León Valencia');
-		
+		('00034', '008','00007','Aer. El Dorado'),
+		('00035', '008','00008','Aer. José María Córdova'),
+		('00036', '008','00009','Aer. Alfonso Bonilla Aragón'),
+		('00038', '008','00010','Aer. Ernesto Cortissoz'),
+		('00039', '008','00011','Aer. Rafael Núñez - Car'),
+		('00037', '008','00012','Aer. Guillermo León Valencia');
+DELETE FROM	lugar	
+WHERE idlugar!='00001'
 --Dias de la semana
 INSERT into Dia (idDia, AnomDia)
 VALUES ('1', 'Lunes'),
@@ -72,4 +73,12 @@ VALUES ('1', 'Lunes'),
 		('5', 'Viernes'),
 		('6', 'Sabado'),
 		('7', 'Domingo');
+
+
+INSERT INTO programavuelo (idlugar, lug_idlugar, lug_idlugar2, codlinea) 
+VALUES (00001, '00037','00039', '00033', '001')
+
+Select * from programavuelo
+
+
 

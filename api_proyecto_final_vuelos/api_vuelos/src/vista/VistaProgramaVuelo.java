@@ -6,11 +6,21 @@
 package vista;
 
 import dao.AerolineaImp;
+import dao.DiaImp;
+import dao.DiaProgramaImp;
+import dao.ProgramaVueloImp;
 import interfacesDao.DAOAerolinea;
+import interfacesDao.DAODia;
+import interfacesDao.DAODiaPrograma;
+import interfacesDao.DAOProgramaVuelo;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import logica.Aerolinea;
+import logica.Dia;
+import logica.DiaPrograma;
+import logica.ProgramaVuelo;
 
 /**
  *
@@ -19,11 +29,32 @@ import logica.Aerolinea;
 public class VistaProgramaVuelo extends javax.swing.JFrame {
 
     CargarComboBox metodosCargarComboBox = new CargarComboBox();
+
     public VistaProgramaVuelo() {
         initComponents();
-        
+
         //Cargamos ComboBox
         metodosCargarComboBox.comboBoxAerolinea(lineaAComboBox);
+        metodosCargarComboBox.comboBoxAeropuertoPlan(cbAeroPlan);
+        metodosCargarComboBox.comboBoxAeropuertoPlan(cbAeroOrigen);
+        metodosCargarComboBox.comboBoxAeropuertoPlan(cbAeroDestino);
+
+        //Cargando Dias
+        DAODia daoDia = new DiaImp();
+        List<Dia> listaDias;
+        try {
+            listaDias = daoDia.listar();
+            cbxDia1.setText(listaDias.get(0).getAnomdia());
+            cbxDia2.setText(listaDias.get(1).getAnomdia());
+            cbxDia3.setText(listaDias.get(2).getAnomdia());
+            cbxDia4.setText(listaDias.get(3).getAnomdia());
+            cbxDia5.setText(listaDias.get(4).getAnomdia());
+            cbxDia6.setText(listaDias.get(5).getAnomdia());
+            cbxDia7.setText(listaDias.get(6).getAnomdia());
+        } catch (Exception ex) {
+            Logger.getLogger(VistaProgramaVuelo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     /**
@@ -35,20 +66,32 @@ public class VistaProgramaVuelo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         lineaAComboBox = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        lineaAComboBox1 = new javax.swing.JComboBox<>();
+        cbAeroPlan = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        lineaAComboBox2 = new javax.swing.JComboBox<>();
+        cbAeroOrigen = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        lineaAComboBox3 = new javax.swing.JComboBox<>();
+        cbAeroDestino = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        btnEnviar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         btnReporte = new javax.swing.JButton();
+        btnEnviar = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        cbxDia1 = new javax.swing.JCheckBox();
+        cbxDia2 = new javax.swing.JCheckBox();
+        cbxDia3 = new javax.swing.JCheckBox();
+        cbxDia4 = new javax.swing.JCheckBox();
+        cbxDia5 = new javax.swing.JCheckBox();
+        cbxDia6 = new javax.swing.JCheckBox();
+        cbxDia7 = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,13 +103,6 @@ public class VistaProgramaVuelo extends javax.swing.JFrame {
 
         jLabel5.setText("Aeropuerto Destino");
 
-        btnEnviar.setText("Enviar");
-        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEnviarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -75,56 +111,51 @@ public class VistaProgramaVuelo extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lineaAComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(35, 35, 35)
+                            .addComponent(jLabel3)
+                            .addComponent(cbAeroPlan, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lineaAComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addGap(34, 34, 34)
+                            .addComponent(jLabel4)
+                            .addComponent(cbAeroOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(44, 44, 44)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lineaAComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addContainerGap(82, Short.MAX_VALUE))
+                            .addComponent(jLabel5)
+                            .addComponent(cbAeroDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lineaAComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEnviar)
-                        .addGap(115, 115, 115))))
+                            .addComponent(jLabel1)
+                            .addComponent(lineaAComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lineaAComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnEnviar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lineaAComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lineaAComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cbAeroPlan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lineaAComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cbAeroOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lineaAComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                        .addComponent(cbAeroDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(32, 32, 32))
         );
 
+        jLabel2.setFont(new java.awt.Font("Eras Medium ITC", 1, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Programacion Vuelo");
+        jLabel2.setText("Programación Vuelo");
 
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -135,27 +166,87 @@ public class VistaProgramaVuelo extends javax.swing.JFrame {
 
         btnReporte.setText("Reporte del dia");
 
+        btnEnviar.setText("Enviar");
+        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(btnReporte)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(btnReporte)
+                        .addGap(66, 66, 66)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(btnEnviar)))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(btnReporte)
-                .addContainerGap(50, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(26, 26, 26))
+                .addGap(14, 14, 14)
+                .addComponent(btnEnviar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnReporte)
+                    .addComponent(jButton1))
+                .addGap(0, 24, Short.MAX_VALUE))
+        );
+
+        cbxDia2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxDia2ActionPerformed(evt);
+            }
+        });
+
+        cbxDia4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxDia4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cbxDia1)
+                    .addComponent(cbxDia2)
+                    .addComponent(cbxDia3)
+                    .addComponent(cbxDia4)
+                    .addComponent(cbxDia5)
+                    .addComponent(cbxDia6)
+                    .addComponent(cbxDia7))
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cbxDia1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxDia2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxDia3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxDia4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxDia5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxDia6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxDia7)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -164,29 +255,35 @@ public class VistaProgramaVuelo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(46, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(208, 208, 208)
-                        .addComponent(jLabel2)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(161, 161, 161)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(85, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(255, 255, 255))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(45, 45, 45)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(114, 114, 114))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(156, 156, 156))))
         );
 
         pack();
@@ -199,7 +296,108 @@ public class VistaProgramaVuelo extends javax.swing.JFrame {
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         
+        //Agregar en bd programa vuelo
+        DAOProgramaVuelo daoPrVuelo = new ProgramaVueloImp();
+        ProgramaVuelo pr = new ProgramaVuelo();
+        String idAeropuerto, idAerOrigen, idAerDestino, codLinea;
+        int idPrograma = 0;
+        
+        idAeropuerto = metodosCargarComboBox.obtenerIdAeropuerto((String) cbAeroPlan.getSelectedItem());
+        idAerOrigen = metodosCargarComboBox.obtenerIdAeropuerto((String) cbAeroOrigen.getSelectedItem());
+        idAerDestino = metodosCargarComboBox.obtenerIdAeropuerto((String) cbAeroDestino.getSelectedItem());
+        codLinea = metodosCargarComboBox.obtenerIdAerolinea((String) lineaAComboBox.getSelectedItem());
+        idPrograma = metodosCargarComboBox.obtenerIdProgramaVuelo();
+        
+        pr.setId(idPrograma);
+        pr.setCodLinea(codLinea);
+        pr.setIdAeropuerto(idAeropuerto);
+        pr.setIdDestino(idAerDestino);
+        pr.setIdOrigen(idAerOrigen);
+
+        try {
+            daoPrVuelo.registrar(pr);
+            this.agregarDiasPrograma(idPrograma);
+            JOptionPane.showMessageDialog(null, "Programa Vuelo Agregado");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        
+        
+
     }//GEN-LAST:event_btnEnviarActionPerformed
+
+    public void agregarDiasPrograma(int idPrograma){
+        //Agregar en bd diaprograma
+        
+        DiaPrograma dp = new DiaPrograma();
+        String idDia;
+        
+        if (cbxDia1.isSelected()){
+            idDia = metodosCargarComboBox.obtenerIdDia(cbxDia1.getText());
+            dp.setIdDia(idDia);
+            dp.setIdPrograma(idPrograma);
+            this.registrarDiaPrograma(dp);
+            
+        }
+        if (cbxDia2.isSelected()){
+            idDia = metodosCargarComboBox.obtenerIdDia(cbxDia2.getText());
+            dp.setIdDia(idDia);
+            dp.setIdPrograma(idPrograma);
+            this.registrarDiaPrograma(dp);
+            
+        }
+        if (cbxDia3.isSelected()){
+            idDia = metodosCargarComboBox.obtenerIdDia(cbxDia3.getText());
+            dp.setIdDia(idDia);
+            dp.setIdPrograma(idPrograma);
+            this.registrarDiaPrograma(dp);
+            
+        }
+        if (cbxDia4.isSelected()){
+            idDia = metodosCargarComboBox.obtenerIdDia(cbxDia4.getText());
+            dp.setIdDia(idDia);
+            dp.setIdPrograma(idPrograma);
+            this.registrarDiaPrograma(dp);
+            
+        }
+        if (cbxDia5.isSelected()){
+            idDia = metodosCargarComboBox.obtenerIdDia(cbxDia5.getText());
+            dp.setIdDia(idDia);
+            dp.setIdPrograma(idPrograma);
+            this.registrarDiaPrograma(dp);
+            
+        }
+        if (cbxDia6.isSelected()){
+            idDia = metodosCargarComboBox.obtenerIdDia(cbxDia6.getText());
+            dp.setIdDia(idDia);
+            dp.setIdPrograma(idPrograma);
+            this.registrarDiaPrograma(dp);
+            
+        }
+        if (cbxDia7.isSelected()){
+            idDia = metodosCargarComboBox.obtenerIdDia(cbxDia7.getText());
+            dp.setIdDia(idDia);
+            dp.setIdPrograma(idPrograma);
+            this.registrarDiaPrograma(dp);
+            
+        }
+    }
+    
+    public void registrarDiaPrograma(DiaPrograma dp){
+        try {
+            DAODiaPrograma daoDiaP = new DiaProgramaImp();
+            daoDiaP.registrar(dp);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+    private void cbxDia2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDia2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxDia2ActionPerformed
+
+    private void cbxDia4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDia4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxDia4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,6 +440,20 @@ public class VistaProgramaVuelo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEnviar;
     private javax.swing.JButton btnReporte;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
+    private javax.swing.JComboBox<String> cbAeroDestino;
+    private javax.swing.JComboBox<String> cbAeroOrigen;
+    private javax.swing.JComboBox<String> cbAeroPlan;
+    private javax.swing.JCheckBox cbxDia1;
+    private javax.swing.JCheckBox cbxDia2;
+    private javax.swing.JCheckBox cbxDia3;
+    private javax.swing.JCheckBox cbxDia4;
+    private javax.swing.JCheckBox cbxDia5;
+    private javax.swing.JCheckBox cbxDia6;
+    private javax.swing.JCheckBox cbxDia7;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -250,9 +462,7 @@ public class VistaProgramaVuelo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JComboBox<String> lineaAComboBox;
-    private javax.swing.JComboBox<String> lineaAComboBox1;
-    private javax.swing.JComboBox<String> lineaAComboBox2;
-    private javax.swing.JComboBox<String> lineaAComboBox3;
     // End of variables declaration//GEN-END:variables
 }
