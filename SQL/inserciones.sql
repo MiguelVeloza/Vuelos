@@ -74,7 +74,13 @@ VALUES ('1', 'Lunes'),
 		('6', 'Sabado'),
 		('7', 'Domingo');
 
-
+----Linea Aerea		
+insert int lineaaerea (codlinea, nombrelinea)
+values	('AVI', 'Avianca '),
+		('LAN', 'Lan CHile'),
+		('VIA', 'Viva Colombia'),
+		('COA', 'Copa Airlines'),
+		('AMA', 'American Airlines');
 INSERT INTO programavuelo (idlugar, lug_idlugar, lug_idlugar2, codlinea) 
 VALUES (00001, '00037','00039', '00033', '001')
 
