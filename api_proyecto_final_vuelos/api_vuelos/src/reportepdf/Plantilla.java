@@ -23,10 +23,6 @@ public class Plantilla {
    
     
     private String fecha;
-    private int codPlanVuelo;
-    
-    private String origen;
-    private String destino;
     private List<ProgramaVuelo> listaPV;
     
     Document documento;
