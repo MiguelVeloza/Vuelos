@@ -6,4 +6,5 @@ import logica.Lugar;
 
 public interface DAOLugar extends CRUD<Lugar>{
     public List<Lugar> listarAeropuertos() throws Exception;
+    public Lugar obtenerLugarById(String id) throws Exception;
 }

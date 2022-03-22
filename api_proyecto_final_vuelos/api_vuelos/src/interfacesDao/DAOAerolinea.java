@@ -12,5 +12,5 @@ import logica.Aerolinea;
  * @author migue
  */
 public interface DAOAerolinea extends CRUD<Aerolinea>{
-    
+    public Aerolinea obtenerAerolineaByCod(String cod) throws Exception;
 }

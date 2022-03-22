@@ -8,6 +8,8 @@ import interfacesDao.DAOAerolinea;
 import interfacesDao.DAODia;
 import interfacesDao.DAOLugar;
 import interfacesDao.DAOProgramaVuelo;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JComboBox;
 import logica.Aerolinea;
 import logica.Dia;
@@ -102,5 +104,20 @@ public class CargarComboBox {
         }
         
         return idDia;
+    }
+    
+    public static String fechaActual(){
+        
+        Date fecha = new Date();
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("EEEE dd/MM/YYYY");
+        
+        return formatoFecha.format(fecha);
+    }
+    public static String diaActual(){
+        
+        Date fecha = new Date();
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("EEEE");
+        
+        return formatoFecha.format(fecha);
     }
 }

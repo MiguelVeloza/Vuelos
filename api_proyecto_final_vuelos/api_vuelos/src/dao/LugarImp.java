@@ -110,5 +110,33 @@ public class LugarImp extends Conexion implements DAOLugar{
         }
         return lista;
     }
+
+    @Override
+    public Lugar obtenerLugarById(String id) throws Exception {
+        Lugar l = new Lugar(); 
+        try{
+            this.conectar();
+            String sql = "select * from lugar\n" +
+                          "WHERE idlugar='"+id+"';";
+            
+            PreparedStatement st = this.conexion.prepareStatement(sql);                      
+            ResultSet rs = st.executeQuery();
+            if(rs.next()){
+                l.setId(rs.getString("idlugar"));
+                l.setIdLugarSuperior(rs.getString("lug_idlugar"));
+                l.setIdTipoLugar(rs.getString("idtipolugar"));
+                l.setNombre(rs.getString("nomlugar"));               
+            }
+            
+            
+            rs.close();
+            st.close();                              
+        }catch (Exception e){
+            throw e;
+        } finally {
+            this.cerrar();
+        }
+        return l;
+    }
     
 }

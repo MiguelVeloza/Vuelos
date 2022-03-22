@@ -1,5 +1,6 @@
 package interfacesDao;
 
+import java.util.List;
 import logica.ProgramaVuelo;
 
 /**
@@ -8,5 +9,5 @@ import logica.ProgramaVuelo;
  */
 
 public interface DAOProgramaVuelo extends CRUD<ProgramaVuelo>{
-    
+    public List<ProgramaVuelo> listarProgramasDia(String dia)  throws Exception;
 }

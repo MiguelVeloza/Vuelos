@@ -71,5 +71,32 @@ public class AerolineaImp extends Conexion implements DAOAerolinea {
         return lista;
     }
 
+    @Override
+    public Aerolinea obtenerAerolineaByCod(String cod) throws Exception {
+        Aerolinea a = null; 
+        try{
+            this.conectar();
+            String sql = "select * from lineaaerea\n" +
+                          "WHERE codlinea='"+cod+"';";
+            
+            PreparedStatement st = this.conexion.prepareStatement(sql);                      
+            ResultSet rs = st.executeQuery();
+            if(rs.next()){
+                a = new Aerolinea();
+                a.setCodigo(rs.getString("codlinea"));
+                a.setNombre(rs.getString("nombrelinea"));
+            }
+            
+            
+            rs.close();
+            st.close();                              
+        }catch (Exception e){
+            throw e;
+        } finally {
+            this.cerrar();
+        }
+        return a;
+    }
+
   
 }

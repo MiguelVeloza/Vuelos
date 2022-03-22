@@ -83,4 +83,38 @@ public class ProgramaVueloImp extends Conexion implements DAOProgramaVuelo{
         return lista;
     }
     
+    @Override
+    public List<ProgramaVuelo> listarProgramasDia(String dia) throws Exception {
+        List<ProgramaVuelo> lista = null; 
+        try{
+            this.conectar();
+            String sql = "SELECT pv.idprograma, pv.idlugar, pv.lug_idlugar, pv.lug_idlugar2, pv.codlinea \n" +
+                        "FROM programavuelo as pv, diaprograma as dp, dia as d \n" +
+                        "WHERE (dp.iddia = d.iddia) and upper(d.anomdia) = upper(?) and dp.idprograma = pv.idprograma;";
+            
+            PreparedStatement st = this.conexion.prepareStatement(sql);
+            st.setString(1, dia);
+            lista = new ArrayList();
+            ResultSet rs = st.executeQuery();
+            
+            while(rs.next()) {
+                ProgramaVuelo pr = new ProgramaVuelo();
+                pr.setId(rs.getInt("idprograma"));
+                pr.setIdAeropuerto(rs.getString("idlugar"));
+                pr.setIdOrigen(rs.getString("lug_idlugar"));
+                pr.setIdDestino(rs.getString("lug_idlugar2"));
+                pr.setCodLinea(rs.getString("codlinea"));
+                
+                lista.add(pr);
+            }
+            rs.close();
+            st.close();                              
+        }catch (Exception e){
+            throw e;
+        } finally {
+            this.cerrar();
+        }
+        return lista;
+    }
+    
 }

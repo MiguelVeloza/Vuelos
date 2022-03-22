@@ -21,6 +21,7 @@ import logica.Aerolinea;
 import logica.Dia;
 import logica.DiaPrograma;
 import logica.ProgramaVuelo;
+import reportepdf.Plantilla;
 
 /**
  *
@@ -28,16 +29,16 @@ import logica.ProgramaVuelo;
  */
 public class VistaProgramaVuelo extends javax.swing.JFrame {
 
-    CargarComboBox metodosCargarComboBox = new CargarComboBox();
+    CargarComboBox metodosCargarVista = new CargarComboBox();
 
     public VistaProgramaVuelo() {
         initComponents();
 
         //Cargamos ComboBox
-        metodosCargarComboBox.comboBoxAerolinea(lineaAComboBox);
-        metodosCargarComboBox.comboBoxAeropuertoPlan(cbAeroPlan);
-        metodosCargarComboBox.comboBoxAeropuertoPlan(cbAeroOrigen);
-        metodosCargarComboBox.comboBoxAeropuertoPlan(cbAeroDestino);
+        metodosCargarVista.comboBoxAerolinea(lineaAComboBox);
+        metodosCargarVista.comboBoxAeropuertoPlan(cbAeroPlan);
+        metodosCargarVista.comboBoxAeropuertoPlan(cbAeroOrigen);
+        metodosCargarVista.comboBoxAeropuertoPlan(cbAeroDestino);
 
         //Cargando Dias
         DAODia daoDia = new DiaImp();
@@ -165,6 +166,11 @@ public class VistaProgramaVuelo extends javax.swing.JFrame {
         });
 
         btnReporte.setText("Reporte del dia");
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteActionPerformed(evt);
+            }
+        });
 
         btnEnviar.setText("Enviar");
         btnEnviar.addActionListener(new java.awt.event.ActionListener() {
@@ -195,9 +201,9 @@ public class VistaProgramaVuelo extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(btnEnviar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReporte)
-                    .addComponent(jButton1))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addComponent(btnReporte))
                 .addGap(0, 24, Short.MAX_VALUE))
         );
 
@@ -302,11 +308,11 @@ public class VistaProgramaVuelo extends javax.swing.JFrame {
         String idAeropuerto, idAerOrigen, idAerDestino, codLinea;
         int idPrograma = 0;
         
-        idAeropuerto = metodosCargarComboBox.obtenerIdAeropuerto((String) cbAeroPlan.getSelectedItem());
-        idAerOrigen = metodosCargarComboBox.obtenerIdAeropuerto((String) cbAeroOrigen.getSelectedItem());
-        idAerDestino = metodosCargarComboBox.obtenerIdAeropuerto((String) cbAeroDestino.getSelectedItem());
-        codLinea = metodosCargarComboBox.obtenerIdAerolinea((String) lineaAComboBox.getSelectedItem());
-        idPrograma = metodosCargarComboBox.obtenerIdProgramaVuelo();
+        idAeropuerto = metodosCargarVista.obtenerIdAeropuerto((String) cbAeroPlan.getSelectedItem());
+        idAerOrigen = metodosCargarVista.obtenerIdAeropuerto((String) cbAeroOrigen.getSelectedItem());
+        idAerDestino = metodosCargarVista.obtenerIdAeropuerto((String) cbAeroDestino.getSelectedItem());
+        codLinea = metodosCargarVista.obtenerIdAerolinea((String) lineaAComboBox.getSelectedItem());
+        idPrograma = metodosCargarVista.obtenerIdProgramaVuelo();
         
         pr.setId(idPrograma);
         pr.setCodLinea(codLinea);
@@ -333,49 +339,49 @@ public class VistaProgramaVuelo extends javax.swing.JFrame {
         String idDia;
         
         if (cbxDia1.isSelected()){
-            idDia = metodosCargarComboBox.obtenerIdDia(cbxDia1.getText());
+            idDia = metodosCargarVista.obtenerIdDia(cbxDia1.getText());
             dp.setIdDia(idDia);
             dp.setIdPrograma(idPrograma);
             this.registrarDiaPrograma(dp);
             
         }
         if (cbxDia2.isSelected()){
-            idDia = metodosCargarComboBox.obtenerIdDia(cbxDia2.getText());
+            idDia = metodosCargarVista.obtenerIdDia(cbxDia2.getText());
             dp.setIdDia(idDia);
             dp.setIdPrograma(idPrograma);
             this.registrarDiaPrograma(dp);
             
         }
         if (cbxDia3.isSelected()){
-            idDia = metodosCargarComboBox.obtenerIdDia(cbxDia3.getText());
+            idDia = metodosCargarVista.obtenerIdDia(cbxDia3.getText());
             dp.setIdDia(idDia);
             dp.setIdPrograma(idPrograma);
             this.registrarDiaPrograma(dp);
             
         }
         if (cbxDia4.isSelected()){
-            idDia = metodosCargarComboBox.obtenerIdDia(cbxDia4.getText());
+            idDia = metodosCargarVista.obtenerIdDia(cbxDia4.getText());
             dp.setIdDia(idDia);
             dp.setIdPrograma(idPrograma);
             this.registrarDiaPrograma(dp);
             
         }
         if (cbxDia5.isSelected()){
-            idDia = metodosCargarComboBox.obtenerIdDia(cbxDia5.getText());
+            idDia = metodosCargarVista.obtenerIdDia(cbxDia5.getText());
             dp.setIdDia(idDia);
             dp.setIdPrograma(idPrograma);
             this.registrarDiaPrograma(dp);
             
         }
         if (cbxDia6.isSelected()){
-            idDia = metodosCargarComboBox.obtenerIdDia(cbxDia6.getText());
+            idDia = metodosCargarVista.obtenerIdDia(cbxDia6.getText());
             dp.setIdDia(idDia);
             dp.setIdPrograma(idPrograma);
             this.registrarDiaPrograma(dp);
             
         }
         if (cbxDia7.isSelected()){
-            idDia = metodosCargarComboBox.obtenerIdDia(cbxDia7.getText());
+            idDia = metodosCargarVista.obtenerIdDia(cbxDia7.getText());
             dp.setIdDia(idDia);
             dp.setIdPrograma(idPrograma);
             this.registrarDiaPrograma(dp);
@@ -398,6 +404,22 @@ public class VistaProgramaVuelo extends javax.swing.JFrame {
     private void cbxDia4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDia4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxDia4ActionPerformed
+
+    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
+        // TODO add your handling code here:
+        DAOProgramaVuelo daoPV = new ProgramaVueloImp();
+        Plantilla newReport;
+        
+        try {
+            newReport = new Plantilla(daoPV.listarProgramasDia(metodosCargarVista.diaActual()), metodosCargarVista.fechaActual());
+            newReport.crearPlantilla();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+        
+        
+    }//GEN-LAST:event_btnReporteActionPerformed
 
     /**
      * @param args the command line arguments

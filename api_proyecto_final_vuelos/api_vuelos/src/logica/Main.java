@@ -15,11 +15,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Main {
-    /*
+    
     public static void main(String[] args){
         Pasajero p = new Pasajero();
-        p.setId("32423423");
-        p.setNombre("Angie");
+        p.setId("7896541");
+        p.setNombre("Mateoe");
         p.setApellido("Gonzalez");
         
         
@@ -32,7 +32,7 @@ public class Main {
 
              
         try {
-            daoP.eliminar(p);
+            
            
             for(Pasajero pe: daoP.listar()){
                 System.out.println(pe.getNombre());
@@ -43,6 +43,6 @@ public class Main {
         }catch (Exception e) {
             System.out.println(e.getMessage());
         }
-    }*/
+    }
     
 }
