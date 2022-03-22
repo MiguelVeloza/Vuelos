@@ -34,7 +34,7 @@ public class Plantilla {
         this.fecha = fecha;
         this.listaPV = listaPV;
         
-        titulo = new Paragraph("Planes de vuelo");
+        titulo = new Paragraph("Planes de vuelo con fecha " + fecha);
         documento = new Document();
     }
     
